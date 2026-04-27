@@ -3,8 +3,19 @@ import string
 
 start = time.time()
 
-with open('book.txt', 'r', encoding='utf-8') as f:
-    text = f.read()
+try:
+    with open('book.txt', 'r', encoding='utf-8') as f:
+        text = f.read()
+except FileNotFoundError:
+    try:
+        from google.colab import files
+        print("Please upload your book.txt file:")
+        uploaded = files.upload()
+        with open('book.txt', 'r', encoding='utf-8') as f:
+            text = f.read()
+    except ImportError:
+        print("ERROR: book.txt not found. Please add your book.txt file to this folder.")
+        exit()
 
 text = text.lower()
 for p in string.punctuation:

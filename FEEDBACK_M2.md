@@ -4,7 +4,7 @@
 **Reviewed commit:** `7afb861` — *Update wordcounter.py / Update sequential word counter to handle 10 books*
 **Reviewed:** Sat May 2, 2026
 
-> **What this is:** a **pregrade** — a preliminary review from me to flag things while you still have time to fix them before M3. **The official M2 grade will be assigned by Eng. Aseel (IT)** based on your full submission (repo + Moodle PDF + demo video). Treat this document as advice, not a final mark.
+> **What this is:** a **pregrade** — a preliminary review from me to flag things while you still have time to fix them before M3. **The official M2 grade will be assigned by Eng. Aseel (TA)** based on your full submission (repo + Moodle PDF + demo video). Treat this document as advice, not a final mark.
 >
 > **Scope:** repository contents only. The PDF report and demo video are submitted directly on Moodle and will be graded from there.
 >

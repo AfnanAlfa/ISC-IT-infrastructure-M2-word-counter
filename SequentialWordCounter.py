@@ -3,7 +3,7 @@ import string
 import os
 import urllib.request
 
-# default books
+# Default books
 DEFAULT_BOOKS = {
     "book1.txt": "https://www.gutenberg.org/files/1112/1112-0.txt",   # Romeo and Juliet
     "book2.txt": "https://www.gutenberg.org/files/11/11-0.txt",       # Alice in Wonderland
@@ -43,35 +43,22 @@ def merge_counts(all_counts):
             merged[word] = merged.get(word, 0) + count
     return merged
 
-# user files
-print("Do you want to upload your own book? (yes / no)")
-user_input = input().strip().lower()
-
-if user_input == "yes":
-    from google.colab import files
-    print("Upload your .txt file:")
-    uploaded = files.upload()
-    book_files = list(uploaded.keys())
-else:
+if __name__ == "__main__":
     download_default_books()
     book_files = [f"books/book{i}.txt" for i in range(1, 11)]
 
-# timing
-start = time.time()
+    start = time.time()
+    all_results = []
+    for book in book_files:
+        result = count_words_in_book(book)
+        all_results.append(result)
 
-all_results = []
-for book in book_files:
-    result = count_words_in_book(book)
-    all_results.append(result)
+    merged = merge_counts(all_results)
+    end = time.time()
 
-merged = merge_counts(all_results)
-end = time.time()
+    top10 = sorted(merged.items(), key=lambda x: x[1], reverse=True)[:10]
+    print("\n📊 Top 10 most common words:")
+    for word, count in top10:
+        print(f"   {word}: {count}")
 
-# Top 10 words
-top10 = sorted(merged.items(), key=lambda x: x[1], reverse=True)[:10]
-
-print("\n📊 Top 10 most common words:")
-for word, count in top10:
-    print(f"   {word}: {count}")
-
-print(f"\n⏱️ Sequential time: {end - start:.4f} seconds")
+    print(f"\n⏱️ Sequential time: {end - start:.4f} seconds")

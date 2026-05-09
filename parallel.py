@@ -43,7 +43,7 @@ def merge_counts(all_counts):
             merged[word] = merged.get(word, 0) + count
     return merged
 
-if _name_ == "_main_":
+if __name__ == "_main_":
     download_default_books()
     book_files = [f"books/book{i}.txt" for i in range(1, 11)]
 

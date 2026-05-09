@@ -1,0 +1,9 @@
+# Books folder (too large to upload)
+books/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Colab checkpoints
+.ipynb_checkpoints/
